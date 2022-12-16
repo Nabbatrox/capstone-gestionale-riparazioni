@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { User } from 'src/app/models/user';
-import { UsersService } from 'src/app/user.service';
+import { UserService } from 'src/app/user.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   form!: FormGroup;
   checkboxState!: boolean;
 
-  constructor(private userSvc: UsersService, private router: Router, private auth: AuthService) { }
+  constructor(private userSvc: UserService, private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
