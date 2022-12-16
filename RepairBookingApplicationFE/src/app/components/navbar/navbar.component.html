@@ -1,0 +1,22 @@
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-nav">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="(['/'])">RepairBookingApp</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="collapse.toggle()"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="coll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" id="collapsed">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="(['/'])">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="(['/services'])">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="(['/aboutus'])">About Us</a>
+          </li>         
+        </ul>
+      </div>      
+    </div>
+  </nav>
