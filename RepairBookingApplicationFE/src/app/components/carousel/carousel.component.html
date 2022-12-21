@@ -1,26 +1,49 @@
-<ngb-carousel
-#carousel
-	[interval]="3000"
-	[pauseOnHover]="pauseOnHover"
-	[pauseOnFocus]="pauseOnFocus"
-	(slide)="onSlide($event)">
-    <ng-template ngbSlide>
-      <div class="img-wrapper">
-        <img src="../../../assets/img/cyber-security-gefe8bb7ba_640.jpg" alt="smartphone-repair">
-      </div>
-      <div class="carousel-caption">
-        <h3>Professionals at your service</h3>
-        <p>A dedicated team will work on your device.</p>
-      </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="img-wrapper">
-        <img src="../../../assets/img/pc-g71dcd5033_640.jpg" alt="pc-data-repair">
-      </div>
-      <div class="carousel-caption">
-        <h3>We will take care of your data</h3>
-        <p>Your data are safe: privacy and security before everything.</p>
-      </div>
-    </ng-template>
-  </ngb-carousel>
-
+<ngb-carousel #carousel [interval]="3000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+  (slide)="onSlide($event)">
+  <ng-template ngbSlide>
+    <div class="img-wrap">
+      <img src="../../../assets/img/dell-7Bmk9mAXP2I-unsplash.jpg" alt="pc-repair" class="mh-100" style="width: 100%">
+    </div>
+    <div class="carousel-caption">
+      <h3>Professionals at your service</h3>
+      <p>A dedicated team will work on your device.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="img-wrap">
+      <img src="../../../assets/img/julian-o-hayon-Bs-zngH79Ds-unsplash.jpg" alt="smartphone-repair" class="mh-100" style="width: 100%">
+    </div>
+    <div class="carousel-caption">
+      <h3>Smartphones and accessories</h3>
+      <p>We repair any device.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="img-wrap">
+      <img src="../../../assets/img/chris-ried-bN5XdU-bap4-unsplash.jpg" alt="smartphone-repair" class="mh-100" style="width: 100%">
+    </div>
+    <div class="carousel-caption">
+      <h3>Smartphones and accessories</h3>
+      <p>We repair any device.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="img-wrap">
+      <img src="../../../assets/img/mathew-schwartz-iGheu30xAi8-unsplash.jpg" alt="smartphone-repair" class="mh-100" style="width: 100%">
+    </div>
+    <div class="carousel-caption">
+      <h3>Electronics are delicate!</h3>
+      <p>Please consult our professional before it's to late</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="img-wrap">
+      <img src="../../../assets/img/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg" alt="data-repair" class="mh-100"
+        style="width: 100%">
+    </div>
+    <div class="carousel-caption">
+      <h3>We will take care of your data</h3>
+      <p>Your data are safe: privacy and security before everything.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

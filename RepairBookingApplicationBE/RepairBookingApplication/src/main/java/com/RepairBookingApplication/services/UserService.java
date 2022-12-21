@@ -1,5 +1,6 @@
 package com.RepairBookingApplication.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class UserService {
         return userRepository.save(x);
     }
 
-    public Page<User> getAll(Pageable p) {
-        return userRepository.findAll(p);
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 
     public User getById(Long id) {

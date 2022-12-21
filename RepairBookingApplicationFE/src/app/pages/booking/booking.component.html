@@ -1,0 +1,73 @@
+<main class="form-signin w-100 m-auto">
+    <form [formGroup]="form">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-4"></div>
+                <div class="col-4 mt-4 mb-4 text-center">
+                    <h2 class="h2 mb-3 fw-bold white">Insert required informations</h2>
+                </div>
+                <div class="col-4"></div>
+
+                <div class="col-4"></div>
+                <div class="col-4 mt-1 mb-1">
+                    <div class="form-floating">
+                        <input formControlName="model" type="model" class="form-control" id="floatingInput"
+                            placeholder="Device Model">
+                        <label for="floatingInput">Your Device Model</label>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+
+                <div class="col-4"></div>
+                <div class="col-4 mt-1 mb-1">
+                    <div class="form-floating">
+                        <select formControlName="devicetype" class="form-control" id="floatingInput" type="devicetype">
+                            <option *ngFor="let devicetype of devicetype" [ngValue]="devicetype">
+                                {{devicetype.name}}
+                            </option>
+                        </select>
+                        <label for="floatingInput">Your Device Category</label>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+
+                <div class="col-4"></div>
+                <div class="col-4 mt-1 mb-1">
+                    <div class="form-floating">
+                        <input formControlName="serialnumber" type="serialnumber" class="form-control"
+                            id="floatingInput" placeholder="Serialnumber">
+                        <label for="floatingInput">Serial Number</label>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+
+                <div class="col-4"></div>
+                <div class="col-4 mt-1 mb-1">
+                    <app-forecast></app-forecast>
+                </div>            
+                <div class="col-4"></div>
+
+
+            <div class="col-4"></div>
+            <div class="col-4">
+                <button (click)="submitBooking()" class="w-100 btn btn-lg btn-primary" type="submit">
+                    Submit
+                </button>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <a [routerLink]="['/register']">Don't have a profile?Register now!</a>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <p class="mt-5 mb-3 text-muted">© 2022</p>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        </div>
+    </form>
+</main>

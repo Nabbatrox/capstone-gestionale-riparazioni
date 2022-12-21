@@ -1,0 +1,29 @@
+.weather-list-flex{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.title{
+
+    font-weight: bold;
+
+}
+
+.sidenav-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 100% !important;
+    border-radius: 5px;
+    border: 1px rgb(205, 205, 205) solid;
+    padding: 1rem;
+}
+
+button{
+    width: 100% !important;
+    border-radius: 5px;
+}

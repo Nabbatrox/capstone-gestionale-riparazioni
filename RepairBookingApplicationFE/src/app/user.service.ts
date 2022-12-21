@@ -9,10 +9,10 @@ import { User } from './models/user';
 export class UserService extends GenCrudService <User> {
 
   constructor(private http:HttpClient) {
-    super(http, 'http://localhost:8080/users');
+    super(http, 'http://localhost:8080/api/users');
   }
 
-  apiUsers:string= 'http://localhost:8080/users'
+  apiUsers:string= 'http://localhost:8080/api/users'
 
   getUserById(id:number | undefined){
     return this.http.get<User[]>(this.apiUsers+ '/?id='+ id)

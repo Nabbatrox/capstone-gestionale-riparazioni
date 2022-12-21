@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Login } from './imodels/login';
 import { User } from './models/user';
 
@@ -20,7 +21,7 @@ export class AuthService   {
   apiAuthUrl: string = 'http://localhost:8080/auth';
   apiUrl: string = 'http://localhost:8080/api/users';
 
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient, private route:Router) {}
 
   saveAuthToLocal(access:AuthResponse){
 
@@ -35,8 +36,15 @@ export class AuthService   {
   }
 
   isUserLogged(): boolean{
+    let local = localStorage.getItem('user-access');
+    let session = sessionStorage.getItem('user-session');
 
-    return localStorage.getItem('user-access') != null
+    if(local != null || session != null){
+      return true;
+    }else{
+      this.route.navigate(['/login']);
+      return false;
+    }  
 
   }
 

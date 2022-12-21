@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "bookings")
+@Builder
 public class Booking {
 	
 	@Id
@@ -35,6 +37,8 @@ public class Booking {
 	private LocalDateTime bookingDate;
 	private LocalDateTime expiringDate;
 	
-	
+	public void addDevice(Device device) {
+    	this.device.add(device);
+    }
 
 }

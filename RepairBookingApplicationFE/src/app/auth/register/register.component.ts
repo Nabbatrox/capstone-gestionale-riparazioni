@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
     this.auth.register(this.form.value)
     .subscribe(authentication => {
       this.auth.saveAuthToLocal(authentication)
-      // this.router.navigate([''])
+      this.router.navigate([''])
     })
   }
 }

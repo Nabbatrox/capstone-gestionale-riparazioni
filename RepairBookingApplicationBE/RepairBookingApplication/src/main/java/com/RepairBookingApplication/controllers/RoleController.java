@@ -71,7 +71,7 @@ public class RoleController {
 
 //---------------------------- Put ---------------------------------
     
-    @PutMapping("{id}")
+    @PutMapping("{id}/add-role")
     @PreAuthorize("hasRole('ADMIN')")
     public Role updateRole(
             @PathVariable("id") Long id,

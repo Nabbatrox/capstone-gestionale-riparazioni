@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.RepairBookingApplication.DTO.RegisterDTO;
 import com.RepairBookingApplication.models.Role;
 import com.RepairBookingApplication.models.RoleType;
 import com.RepairBookingApplication.models.User;
@@ -39,8 +40,8 @@ public class UserController {
 
 	private final Logger logger = LoggerFactory.getLogger(UserController.class);
 	    
-//	@Autowired
-//	PasswordEncoder encoder;
+	@Autowired
+	PasswordEncoder encoder;
 
 	@Autowired
 	private UserService userService;
@@ -53,9 +54,9 @@ public class UserController {
 	    
 	@GetMapping("/getall")
 //	@PreAuthorize("hasAnyRole('ADMIN','USER')")
-	public ResponseEntity<Page<User>> getUserList(Pageable p) {
+	public ResponseEntity<List<User>> getUserList() {
 	    	
-		Page<User> res = userService.getAll(p);
+		List<User> res = userService.getAll();
 	        
 	 	if (res.isEmpty()){
 	    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -72,13 +73,24 @@ public class UserController {
 	    
 //---------------------------- Post --------------------------------
 
+
 @PostMapping("/register")
-//@PreAuthorize("hasRole('ROLE_ADMIN')")
-public User saveUser(@RequestBody User user) {
-		user.setActive(true);
-	    logger.info("Save User in UserController");
-	    return userService.save(user);
-	   
+public User saveUser(@RequestBody RegisterDTO dto) {
+
+	User user = User.builder()
+			.username(dto.getUsername())
+			.firstname(dto.getFirstname())
+			.lastname(dto.getLastname())
+			.email(dto.getEmail())
+			.password(encoder.encode(dto.getPassword()))
+			.active(true)
+			.roles(new HashSet<Role>())
+			.build();
+
+	user.addRole(roleService.getByRole(RoleType.ROLE_USER));
+
+	logger.info("Save User in UserController");
+	return userService.save(user);
 }
 
 //---------------------------- Put ---------------------------------
@@ -94,27 +106,23 @@ public User saveUser(@RequestBody User user) {
 			
 			
 			userService.save(user);
-			 logger.info("Role added");
+			logger.info("Role added");
 		}
 
 	    @PutMapping("{id}")
 	    @PreAuthorize("hasAnyRole()")
 	    public User updateUser(
 	            @PathVariable("id") Long id,
-	            @RequestParam(value="email",required=false) String email,	            
-	            @RequestParam(value="name",required=false) String firstname,
-	            @RequestParam(value="lastname",required=false) String lastname,
-	            @RequestParam(value="username",required=false) String username,
-	            @RequestParam(value="password",required=false) String password
+	            @RequestBody User u
 	            ) {
 
 	        User user = userService.getById(id);
 	        
-	        if(username != null) user.setUsername(username);
-	        if(firstname != null) user.setFirstname(firstname);
-	        if(lastname != null) user.setLastname(lastname);	        
-	        if(email != null) user.setEmail(email);
-	        if(password != null) user.setPassword(password);
+	        if(u.getUsername() != null) user.setUsername(u.getUsername());
+	        if(u.getFirstname() != null) user.setFirstname(u.getFirstname());
+	        if(u.getLastname()!= null) user.setLastname(u.getLastname());	        
+	        if(u.getEmail() != null) user.setEmail(u.getEmail());
+	        if(u.getPassword() != null) user.setPassword(u.getPassword());
 
 	        userService.save(user);
 	        return user;

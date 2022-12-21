@@ -1,0 +1,128 @@
+<mat-sidenav-container class="ga-sidenav-container">
+  <mat-sidenav class="sidenav-flex" mode="side" opened="true" disableClose="true">
+    <form class="ga-margin-1-rem">
+      <mat-form-field>
+        <input class="weather-input" matInput placeholder="Enter Zip Code" [(ngModel)]="zip" [(ngModel)]='listFilter'
+          [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </form>
+
+    <div class="btn">
+      <button mat-raised-button class="ga-width-100-per" [disabled]="!listFilter" color="primary"
+        (click)="loadCurrentWeather()">
+        Current Weather
+      </button>
+    </div>
+
+    <div class="btn">
+      <button mat-raised-button class="ga-width-100-per" [disabled]="!listFilter" color="primary"
+        (click)="loadForecastWeather()">
+        Five Day Forecast
+      </button>
+    </div>
+  </mat-sidenav>
+
+
+    <mat-card class="ga-card" *ngIf="showCurrent">
+      <mat-card-content>
+        <mat-list class="weather-list-flex">
+          <mat-list-item>
+            <span matListItemTitle class="title">City:</span>
+            <span matListItemLine>{{weatherDetails.cityName}}</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle class="title">Temparature:</span>
+            <span matListItemLine>{{weatherDetails.currentTemperature}}F</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle class="title">Minimum Temperature:</span>
+            <span matListItemLine>{{weatherDetails.minTemperature}}F</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle class="title">Maximum Temperature:</span>
+            <span matListItemLine>{{weatherDetails.maxTemperature}}F</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            <span matListItemTitle class="title">Description:</span>
+            <span matListItemLine>{{weatherDetails.description}}</span>
+            <span matListItemLine>
+              <img src="http://openweathermap.org/img/w/{{weatherDetails.icon}}.png" alt="Site Logo" width="50"
+                height="50">
+            </span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="ga-forecast-card" *ngIf="showForecast">
+      <div>
+        <h2> Five day forecast in {{forecastData.name}} </h2>
+      </div>
+      <mat-tab-group color="primary">
+        <mat-tab label="{{forecastData.details[0].date | date : 'mediumDate'}}">
+          <mat-list>
+            <mat-list-item> Minimum Temperature : {{forecastData.details[0].minTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Maximum Temperature : {{forecastData.details[0].maxTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Description : {{forecastData.details[0].description}}<span>
+                <img src="http://openweathermap.org/img/w/{{forecastData.details[0].icon}}.png" alt="Site Logo"
+                  width="50" height="50">
+              </span> </mat-list-item>
+          </mat-list>
+        </mat-tab>
+        <mat-tab label="{{forecastData.details[1].date | date : 'mediumDate'}}">
+          <mat-list>
+            <mat-list-item> Minimum Temperature : {{forecastData.details[1].minTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Maximum Temperature : {{forecastData.details[1].maxTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Description : {{forecastData.details[1].description}}<span>
+                <img src="http://openweathermap.org/img/w/{{forecastData.details[1].icon}}.png" alt="Site Logo"
+                  width="50" height="50">
+              </span> </mat-list-item>
+          </mat-list>
+        </mat-tab>
+        <mat-tab label="{{forecastData.details[2].date | date : 'mediumDate'}}">
+          <mat-list>
+            <mat-list-item> Minimum Temperature : {{forecastData.details[2].minTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Maximum Temperature : {{forecastData.details[2].maxTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Description : {{forecastData.details[2].description}}<span>
+                <img src="http://openweathermap.org/img/w/{{forecastData.details[2].icon}}.png" alt="Site Logo"
+                  width="50" height="50">
+              </span> </mat-list-item>
+          </mat-list>
+        </mat-tab>
+        <mat-tab label="{{forecastData.details[3].date | date : 'mediumDate'}}">
+          <mat-list>
+            <mat-list-item> Minimum Temperature : {{forecastData.details[3].minTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Maximum Temperature : {{forecastData.details[3].maxTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Description : {{forecastData.details[3].description}}<span>
+                <img src="http://openweathermap.org/img/w/{{forecastData.details[3].icon}}.png" alt="Site Logo"
+                  width="50" height="50">
+              </span> </mat-list-item>
+          </mat-list>
+        </mat-tab>
+        <mat-tab label="{{forecastData.details[4].date | date : 'mediumDate'}}">
+          <mat-list>
+            <mat-list-item> Minimum Temperature : {{forecastData.details[4].minTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Maximum Temperature : {{forecastData.details[4].maxTemperature}}F </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item> Description : {{forecastData.details[4].description}}<span>
+                <img src="http://openweathermap.org/img/w/{{forecastData.details[4].icon}}.png" alt="Site Logo"
+                  width="50" height="50">
+              </span> </mat-list-item>
+          </mat-list>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+</mat-sidenav-container>

@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-nav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-nav" id="mynav">
     <div class="container">
       <a class="navbar-brand" [routerLink]="(['/'])">RepairBookingApp</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="collapse.toggle()"
@@ -6,6 +6,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" id="collapsed">
+        <div>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" [routerLink]="(['/'])">Home</a>
@@ -14,9 +15,21 @@
             <a class="nav-link" [routerLink]="(['/services'])">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="(['/aboutus'])">About Us</a>
+            <a class="nav-link" [routerLink]="(['/aboutUs'])">About Us</a>
+          </li>         
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="(['/register'])">Register</a>
           </li>         
         </ul>
+        </div>
+        <div>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item login">
+              <a class="nav-link" [routerLink]="(['/login'])">Login</a>
+            </li>
+          </ul>
+          
+        </div>
       </div>      
     </div>
   </nav>

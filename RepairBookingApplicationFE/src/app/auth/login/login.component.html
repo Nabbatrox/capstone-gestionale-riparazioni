@@ -1,55 +1,57 @@
 <main class="form-signin w-100 m-auto">
     <form [formGroup]="form">
-  
-      
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <h3 class="h3 text-center fw-bold">Please sign in</h3>
     
   
       <div class="container">
         <div class="row">
-          <div class="col-4"></div>
-          <div class="col-4">
+          <div class="col-3"></div>
+          <div class="col-6 mb-2">
             <div class="form-floating">
               <input formControlName="username" type="username" class="form-control" id="floatingInput"
-                placeholder="fragola86">
+                placeholder="Username">
               <label for="floatingInput">Your Username</label>
             </div>
           </div>
-          <div class="col-4"></div>
-          <div class="col-4"></div>
-          <div class="col-4">
-  
+          <div class="col-3"></div>
+
+          <div class="col-3"></div>
+          <div class="col-6">  
             <div class="form-floating">
               <input formControlName="password" type="password" class="form-control" id="floatingPassword"
                 placeholder="Password">
               <label for="floatingPassword">Your Password</label>
             </div>
           </div>
-          <div class="col-4"></div>
-          <div class="col-4 mt-5 mb-5"></div>
-          <div class="col-4 mt-5 mb-5">
-          <div class="checkbox mb-3">
+          <div class="col-3"></div>
+
+          <div class="col-3 mb-2"></div>
+          <div class="col-6 mt-2">
+          <div class="checkbox mb-2">
             <label>
               <input (click)="statusChange()" type="checkbox" value="remember-me"> Remember me
             </label>
           </div>
         </div>
-        <div class="col-4"></div>
-          <div class="col-4"></div>
-          <div class="col-4">
+        <div class="col-3"></div>
+
+          <div class="col-3"></div>
+          <div class="col-6">
           <button (click)="signIn()" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         </div>
-        <div class="col-4"></div>
-        <div class="col-4"></div>
-        <div class="col-4">
-        <a [routerLink]="['/register']" >Don't have a profile?Register now!</a>
+        <div class="col-3"></div>
+
+        <div class="col-3"></div>
+        <div class="col-6">
+        <a class="fw-bold text-decoration-none" [routerLink]="['/register']" >Don't have a profile? Register now!</a>
         </div>
-        <div class="col-4"></div>
-        <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-3"></div>
+
+        <div class="col-3"></div>
+        <div class="col-6">
           <p class="mt-5 mb-3 text-muted">© 2022–2022</p>
         </div>
-        <div class="col-4"></div>
+        <div class="col-3"></div>
           </div>
           </div>
     </form>

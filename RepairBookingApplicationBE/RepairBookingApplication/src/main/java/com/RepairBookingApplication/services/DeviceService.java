@@ -1,5 +1,6 @@
 package com.RepairBookingApplication.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class DeviceService {
 		
 	}
 	
-    public Page<Device> getAll(Pageable d) {
-        return deviceRepository.findAll(d);
+    public List<Device> getAll() {
+        return deviceRepository.findAll();
     }
 	
 	public Device getById(Long id) {
